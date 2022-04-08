@@ -27,9 +27,9 @@ const shop = new Sprite({
     framesMax: 6
 })
 
-const player = new Fighter({
+const player1 = new Fighter({
     position: {
-        x: 0,
+        x: 80,
         y: 0
     },
     velocity: {
@@ -87,9 +87,9 @@ const player = new Fighter({
     }
 })
 
-const enemy = new Fighter({
+const player2 = new Fighter({
     position: {
-        x: 400,
+        x: 500,
         y: 100
     },
     velocity: {
@@ -148,7 +148,7 @@ const enemy = new Fighter({
     }
 })
 
-console.log(player)
+console.log(player1)
 
 const keys = {
     a: {
@@ -178,92 +178,92 @@ function animate() {
     shop.update()
     c.fillStyle = 'rgba(255, 255, 255, 0.15)'
     c.fillRect(0, 0, canvas.width, canvas.height)
-    player.update()
-    enemy.update()
+    player1.update()
+    player2.update()
 
-    player.velocity.x = 0
-    enemy.velocity.x = 0
+    player1.velocity.x = 0
+    player2.velocity.x = 0
 
-    // Player movement
-    if (keys.a.pressed && player.lastKey === 'a') {
-        player.velocity.x = -5
-        player.switchSprite('run')
-    } else if (keys.d.pressed && player.lastKey === 'd') {
-        player.velocity.x = 5
-        player.switchSprite('run')
+    // player1 movement
+    if (keys.a.pressed && player1.lastKey === 'a') {
+        player1.velocity.x = -5
+        player1.switchSprite('run')
+    } else if (keys.d.pressed && player1.lastKey === 'd') {
+        player1.velocity.x = 5
+        player1.switchSprite('run')
     } else {
-        player.switchSprite('idle')
+        player1.switchSprite('idle')
     }
 
     //Jumping
-    if (player.velocity.y < 0) {
-        player.switchSprite('jump')
-    } else if (player.velocity.y > 0) {
-        player.switchSprite('fall')
+    if (player1.velocity.y < 0) {
+        player1.switchSprite('jump')
+    } else if (player1.velocity.y > 0) {
+        player1.switchSprite('fall')
     }
 
 
-    // Enemy movement
-    if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
-        enemy.velocity.x = -5
-        enemy.switchSprite('run')
-    } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
-        enemy.velocity.x = 5
-        enemy.switchSprite('run')
+    // player2 movement
+    if (keys.ArrowLeft.pressed && player2.lastKey === 'ArrowLeft') {
+        player2.velocity.x = -5
+        player2.switchSprite('run')
+    } else if (keys.ArrowRight.pressed && player2.lastKey === 'ArrowRight') {
+        player2.velocity.x = 5
+        player2.switchSprite('run')
     } else {
-        enemy.switchSprite('idle')
+        player2.switchSprite('idle')
     }
 
     // jumping
-    if (enemy.velocity.y < 0) {
-        enemy.switchSprite('jump')
-    } else if (enemy.velocity.y > 0) {
-        enemy.switchSprite('fall')
+    if (player2.velocity.y < 0) {
+        player2.switchSprite('jump')
+    } else if (player2.velocity.y > 0) {
+        player2.switchSprite('fall')
     }
 
-    //detect collision & enemy gets hit
+    //detect collision & player2 gets hit
     if (rectangularCollision({
-            rectangle1: player,
-            rectangle2: enemy
+            rectangle1: player1,
+            rectangle2: player2
         }) &&
-        player.isAttacking && player.framesCurrent === 4) {
-        enemy.takeHit()
-        player.isAttacking = false
+        player1.isAttacking && player1.framesCurrent === 4) {
+        player2.takeHit()
+        player1.isAttacking = false
 
-        gsap.to('#enemyHealth', {
-            width: enemy.health + '%'
+        gsap.to('#player2Health', {
+            width: player2.health + '%'
         })
     }
 
-    // if player misses
-    if (player.isAttacking && player.framesCurrent === 4) {
-        player.isAttacking = false
+    // if player1 misses
+    if (player1.isAttacking && player1.framesCurrent === 4) {
+        player1.isAttacking = false
     }
 
-    // Player gets hit
+    // player1 gets hit
     if (rectangularCollision({
-            rectangle1: enemy,
-            rectangle2: player
+            rectangle1: player2,
+            rectangle2: player1
         }) &&
-        enemy.isAttacking && enemy.framesCurrent === 2) {
-        player.takeHit()
-        enemy.isAttacking = false
+        player2.isAttacking && player2.framesCurrent === 2) {
+        player1.takeHit()
+        player2.isAttacking = false
 
-        gsap.to('#playerHealth', {
-            width: player.health + '%'
+        gsap.to('#player1Health', {
+            width: player1.health + '%'
         })
     }
 
-    // if enemy misses
-    if (enemy.isAttacking && enemy.framesCurrent === 2) {
-        enemy.isAttacking = false
+    // if player2 misses
+    if (player2.isAttacking && player2.framesCurrent === 2) {
+        player2.isAttacking = false
     }
 
     // End game based on health
-    if (enemy.health <= 0 || player.health <= 0) {
+    if (player2.health <= 0 || player1.health <= 0) {
         determineWinner({
-            player,
-            enemy,
+            player1,
+            player2,
             timerId
         })
     }
@@ -272,39 +272,39 @@ function animate() {
 animate()
 
 window.addEventListener('keydown', (event) => {
-    if (!player.dead) {
+    if (!player1.dead) {
         switch (event.key) {
             case 'd':
                 keys.d.pressed = true
-                player.lastKey = 'd'
+                player1.lastKey = 'd'
                 break
             case 'a':
                 keys.a.pressed = true
-                player.lastKey = 'a'
+                player1.lastKey = 'a'
                 break
             case 'w':
-                player.velocity.y = -20
+                player1.velocity.y = -20
                 break
             case ' ':
-                player.attack()
+                player1.attack()
                 break
         }
     }
-    if (!enemy.dead) {
+    if (!player2.dead) {
         switch (event.key) {
             case 'ArrowRight':
                 keys.ArrowRight.pressed = true
-                enemy.lastKey = 'ArrowRight'
+                player2.lastKey = 'ArrowRight'
                 break
             case 'ArrowLeft':
                 keys.ArrowLeft.pressed = true
-                enemy.lastKey = 'ArrowLeft'
+                player2.lastKey = 'ArrowLeft'
                 break
             case 'ArrowUp':
-                enemy.velocity.y = -20
+                player2.velocity.y = -20
                 break
             case 'ArrowDown':
-                enemy.attack()
+                player2.attack()
                 break
         }
     }
@@ -323,7 +323,7 @@ window.addEventListener('keyup', (event) => {
             break
     }
 
-    // enemy keys
+    // player2 keys
     switch (event.key) {
         case 'ArrowRight':
             keys.ArrowRight.pressed = false

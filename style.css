@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body{
+    background: #c7d2fe;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+canvas{
+    border-radius: 5px;
+}
+
+.health-bar-container {
+    position: relative;
+    display: inline-block;
+}
+
+.health-bar-main {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 20px;
+}
+
+.health-bar-player1 {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border: 2px solid white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .7);
+    border-top-left-radius: 20px;
+}
+
+.health-bar-player2 {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    border: 2px solid white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, .7);
+    border-top-right-radius: 20px;
+}
+
+.health-bar-player1-hit {
+    background-color: red;
+    height: 30px;
+    width: 100%;
+    border-top-left-radius: 20px;
+}
+
+.health-bar-player2-hit {
+    background-color: red;
+    height: 30px;
+    width: 100%;
+    border-top-right-radius: 20px;
+}
+
+.player1-health {
+    position: absolute;
+    background: #818cf8;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    border-top-left-radius: 20px;
+}
+
+.player2-health {
+    position: absolute;
+    background: #818cf8;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border-top-right-radius: 20px;
+}
+
+.timer{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    top: 90px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    color: #000;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    padding: 10px;
+}
+
+.logo img{
+    width:200px;
+    height: auto;
+}
+
+.player-name{
+    position: absolute;
+    top: 85px;
+    width: 100%;
+}
+
+.player1-name{
+    text-align: left;
+    margin-left: 30px;
+}
+
+.player-name h5{
+    font-size: 1em;
+}
+
+.player2-name{
+    text-align: left;
+    margin-left: 120px;
+}
+
+.display-text {
+    position: absolute;
+    color: #000;
+    display: none;
+    justify-content: center;
+    align-items: flex-start;
+    top: 120px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    font-size: 2em;
+}
