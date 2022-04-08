@@ -40,7 +40,7 @@ const player1 = new Fighter({
         x: 0,
         y: 0
     },
-    imageSrc: './assets/img/samuraiMack/idle.png',
+    imageSrc: './assets/img/asdrubal/idle.png',
     framesMax: 8,
     scale: 2.5,
     offset: {
@@ -49,31 +49,31 @@ const player1 = new Fighter({
     },
     sprites: {
         idle: {
-            imageSrc: './assets/img/samuraiMack/idle.png',
+            imageSrc: './assets/img/asdrubal/idle.png',
             framesMax: 8
         },
         run: {
-            imageSrc: './assets/img/samuraiMack/run.png',
+            imageSrc: './assets/img/asdrubal/run.png',
             framesMax: 8
         },
         jump: {
-            imageSrc: './assets/img/samuraiMack/jump.png',
+            imageSrc: './assets/img/asdrubal/jump.png',
             framesMax: 2
         },
         fall: {
-            imageSrc: './assets/img/samuraiMack/fall.png',
+            imageSrc: './assets/img/asdrubal/fall.png',
             framesMax: 2
         },
         attack1: {
-            imageSrc: './assets/img/samuraiMack/attack1.png',
+            imageSrc: './assets/img/asdrubal/attack1.png',
             framesMax: 6
         },
         takeHit: {
-            imageSrc: './assets/img/samuraiMack/Take Hit - white silhouette.png',
+            imageSrc: './assets/img/asdrubal/Take Hit - white silhouette.png',
             framesMax: 4
         },
         death: {
-            imageSrc: './assets/img/samuraiMack/Death.png',
+            imageSrc: './assets/img/asdrubal/Death.png',
             framesMax: 6
         }
     },
@@ -101,7 +101,7 @@ const player2 = new Fighter({
         x: -50,
         y: 0
     },
-    imageSrc: './assets/img/kenji/idle.png',
+    imageSrc: './assets/img/donna/idle.png',
     framesMax: 4,
     scale: 2.5,
     offset: {
@@ -110,31 +110,31 @@ const player2 = new Fighter({
     },
     sprites: {
         idle: {
-            imageSrc: './assets/img/kenji/idle.png',
+            imageSrc: './assets/img/donna/idle.png',
             framesMax: 4
         },
         run: {
-            imageSrc: './assets/img/kenji/run.png',
+            imageSrc: './assets/img/donna/run.png',
             framesMax: 8
         },
         jump: {
-            imageSrc: './assets/img/kenji/jump.png',
+            imageSrc: './assets/img/donna/jump.png',
             framesMax: 2
         },
         fall: {
-            imageSrc: './assets/img/kenji/fall.png',
+            imageSrc: './assets/img/donna/fall.png',
             framesMax: 2
         },
         attack1: {
-            imageSrc: './assets/img/kenji/attack1.png',
+            imageSrc: './assets/img/donna/attack1.png',
             framesMax: 4
         },
         takeHit: {
-            imageSrc: './assets/img/kenji/Take hit.png',
+            imageSrc: './assets/img/donna/Take hit.png',
             framesMax: 3
         },
         death: {
-            imageSrc: './assets/img/kenji/Death.png',
+            imageSrc: './assets/img/donna/Death.png',
             framesMax: 7
         }
     },
