@@ -14,7 +14,7 @@ function determineWinner({player1, player2, timerId}){
     clearTimeout(timerId)
     document.querySelector('#displayText').style.display = 'flex'
     if (player1.health === player2.health) {
-        document.querySelector('#displayText').innerHTML = 'Tie'
+        document.querySelector('#displayText').innerHTML = 'Time Up'
     }else if(player1.health > player2.health){
         document.querySelector('#displayText').innerHTML = 'Asdrubal Wins'
     }else if(player1.health < player2.health){
