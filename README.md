@@ -1,6 +1,6 @@
 ### Dog Fight - Fighting game developed in vanilla JS - Physics and gravity practice
 
-####PS: Donna and Asdrubal are my 2 beautiful shitzu children
+#### PS: Donna and Asdrubal are my 2 beautiful shitzu children
 
 1 - Backend, Tecs and versions
 
